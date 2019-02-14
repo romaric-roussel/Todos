@@ -13,7 +13,7 @@
         <scene sceneID="JVw-UB-Bmx">
             <objects>
                 <tableViewController id="IPq-fa-m6Q" customClass="ChecklistViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xgd-c0-X46" customClass="Chec" customModule="Checklists" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xgd-c0-X46">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -28,7 +28,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="IPq-fa-m6Q" id="Xhz-8J-dFX"/>
+                            <outlet property="dataSource" destination="IPq-fa-m6Q" id="KQ0-0k-bxg"/>
                             <outlet property="delegate" destination="IPq-fa-m6Q" id="dGn-IU-4u9"/>
                         </connections>
                     </tableView>
