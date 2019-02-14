@@ -37,8 +37,11 @@ class ChecklistViewController: UITableViewController {
 
     }
     
+    //deledgte too
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        checklistArray[indexPath.item].toggleChecked()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func configureCheckmark(for cell: UITableViewCell, withItem item: ChecklistItem){
@@ -48,6 +51,8 @@ class ChecklistViewController: UITableViewController {
     func configureText(for cell: UITableViewCell, withItem item: ChecklistItem){
             cell.textLabel?.text = item.text
     }
+    
+    
 
 
 }
