@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct ChecklistItem {
+class ChecklistItem {
     var text: String
-    var checked: Bool?
+    var checked: Bool
     
     
     init(text:String, checked:Bool = false){
