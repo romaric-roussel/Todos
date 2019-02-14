@@ -54,14 +54,38 @@
 		08447CA822157DA30008A1EA /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
+				08447CBD2215A07E0008A1EA /* Controllers */,
+				08447CBC2215A0620008A1EA /* Models */,
+				08447CBB2215A05B0008A1EA /* Views */,
 				08447CA922157DA30008A1EA /* AppDelegate.swift */,
-				08447CAB22157DA30008A1EA /* ChecklistViewController.swift */,
-				08447CAD22157DA30008A1EA /* Main.storyboard */,
 				08447CB022157DA40008A1EA /* Assets.xcassets */,
 				08447CB222157DA40008A1EA /* LaunchScreen.storyboard */,
 				08447CB522157DA40008A1EA /* Info.plist */,
 			);
 			path = Checklists;
+			sourceTree = "<group>";
+		};
+		08447CBB2215A05B0008A1EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08447CAD22157DA30008A1EA /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		08447CBC2215A0620008A1EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		08447CBD2215A07E0008A1EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08447CAB22157DA30008A1EA /* ChecklistViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
