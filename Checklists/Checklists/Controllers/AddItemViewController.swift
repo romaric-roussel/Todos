@@ -10,16 +10,21 @@ import UIKit
 
 class AddItemViewController: UITableViewController {
     
+    @IBOutlet weak var itemText: UITextField!
     
      @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
     }
     
      @IBAction func done() {
-        print(itemText?.text)
+        print(itemText.text!)
         dismiss(animated: true, completion: nil)
 
     }
-    @IBOutlet weak var itemText: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemText.becomeFirstResponder()
+    }
+    
     
 }
