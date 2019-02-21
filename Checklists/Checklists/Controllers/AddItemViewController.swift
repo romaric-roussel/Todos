@@ -46,6 +46,13 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
         }
         return true
     }
+    
         
     
 }
+
+protocol AddItemViewControllerDelegate : class {
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController)
+    func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
+}
+
