@@ -68,13 +68,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Item" id="U15-s0-Guh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dmd-DY-Q3E"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="94t-7n-xqH"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dmd-DY-Q3E">
+                            <connections>
+                                <action selector="cancel" destination="Iib-gC-dUA" id="xiv-m4-quq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="94t-7n-xqH">
+                            <connections>
+                                <action selector="done" destination="Iib-gC-dUA" id="hb0-pY-gsb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1n-gi-sVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3656.8000000000002" y="-160.56971514242881"/>
+            <point key="canvasLocation" x="3444" y="-179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VuX-MQ-5pw">
