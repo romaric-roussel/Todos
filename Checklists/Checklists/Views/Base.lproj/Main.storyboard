@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" title="Checklist" id="7mb-ak-OHy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q3O-1l-GcZ">
                             <connections>
-                                <action selector="addDummyTodo:" destination="IPq-fa-m6Q" id="QoO-xG-Wzl"/>
+                                <segue destination="Iib-gC-dUA" kind="presentation" id="Bm4-fC-YUv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -43,6 +43,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZR-6O-R6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1279.2" y="-159.67016491754123"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="H77-yc-BUC">
+            <objects>
+                <tableViewController id="Iib-gC-dUA" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U9C-rL-6lT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gmA-rc-hVe">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gmA-rc-hVe" id="6o9-sH-8ZN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Iib-gC-dUA" id="z1W-m3-HUf"/>
+                            <outlet property="delegate" destination="Iib-gC-dUA" id="P4w-lH-l3W"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1n-gi-sVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2034" y="-170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VuX-MQ-5pw">
