@@ -11,27 +11,27 @@ import UIKit
 class AddItemViewController: UITableViewController,UITextFieldDelegate {
     
     @IBOutlet weak var itemText: UITextField!
-    @IBOutlet weak var btnDone: UIBarButtonItem!
     @IBOutlet weak var btnCancel: UIBarButtonItem!
+    @IBOutlet weak var btnDone: UIBarButtonItem!
+    
     
     var delegate : AddItemViewControllerDelegate?
     
-    
-     @IBAction func cancel() {
+    @IBAction func cancel() {
         //dismiss(animated: true, completion: nil)
         delegate?.addItemViewControllerDidCancel(self)
         
     }
     
-     @IBAction func done() {
+    @IBAction func done() {
         //print(itemText.text!)
         //dismiss(animated: true, completion: nil)
-        //delegate?.addItemViewController(self, didFinishAddingItem: <#T##ChecklistItem#>)
-
-    
-        
-
+        delegate?.addItemViewController(self, didFinishAddingItem: ChecklistItem(text: itemText.text!))
+  
     }
+    
+  
+    
     
     override func viewWillAppear(_ animated: Bool) {
         itemText.becomeFirstResponder()

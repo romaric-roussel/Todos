@@ -87,11 +87,12 @@ class ChecklistViewController: UITableViewController {
 extension ChecklistViewController : AddItemViewControllerDelegate{
     
     func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
-        dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
     }
     
     func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
-       dismiss(animated: true, completion: nil)
+       controller.dismiss(animated: true, completion: nil)
+        print(item.text)
     }
     
     
