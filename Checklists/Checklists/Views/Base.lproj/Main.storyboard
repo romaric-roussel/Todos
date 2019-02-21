@@ -48,7 +48,7 @@
         <scene sceneID="H77-yc-BUC">
             <objects>
                 <tableViewController id="Iib-gC-dUA" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="U9C-rL-6lT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="U9C-rL-6lT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -63,17 +63,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNA-ty-QXE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="22"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YNA-ty-QXE" firstAttribute="leading" secondItem="yQ6-BR-P81" secondAttribute="leading" id="91H-lw-vcp"/>
-                                                <constraint firstItem="YNA-ty-QXE" firstAttribute="top" secondItem="yQ6-BR-P81" secondAttribute="top" id="Rl2-5z-DLY"/>
-                                                <constraint firstAttribute="trailing" secondItem="YNA-ty-QXE" secondAttribute="trailing" id="gSp-At-GB9"/>
-                                                <constraint firstAttribute="bottom" secondItem="YNA-ty-QXE" secondAttribute="bottom" id="hQj-rt-8ch"/>
+                                                <constraint firstItem="YNA-ty-QXE" firstAttribute="top" secondItem="yQ6-BR-P81" secondAttribute="topMargin" id="CJB-EL-yzG"/>
+                                                <constraint firstItem="YNA-ty-QXE" firstAttribute="leading" secondItem="yQ6-BR-P81" secondAttribute="leadingMargin" id="IK3-WY-rmV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YNA-ty-QXE" secondAttribute="trailing" id="eOM-5k-EQg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YNA-ty-QXE" secondAttribute="bottom" id="oWt-QI-6H3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -97,6 +97,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemText" destination="YNA-ty-QXE" id="xb8-DH-U3h"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1n-gi-sVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,8 +16,10 @@ class AddItemViewController: UITableViewController {
     }
     
      @IBAction func done() {
+        print(itemText?.text)
         dismiss(animated: true, completion: nil)
 
     }
+    @IBOutlet weak var itemText: UITextField!
     
 }
