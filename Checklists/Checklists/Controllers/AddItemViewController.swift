@@ -14,13 +14,22 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
     @IBOutlet weak var btnDone: UIBarButtonItem!
     @IBOutlet weak var btnCancel: UIBarButtonItem!
     
+    var delegate : AddItemViewControllerDelegate?
+    
+    
      @IBAction func cancel() {
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        delegate?.addItemViewControllerDidCancel(self)
+        
     }
     
      @IBAction func done() {
-        print(itemText.text!)
-        dismiss(animated: true, completion: nil)
+        //print(itemText.text!)
+        //dismiss(animated: true, completion: nil)
+        //delegate?.addItemViewController(self, didFinishAddingItem: <#T##ChecklistItem#>)
+
+    
+        
 
     }
     
@@ -50,9 +59,10 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
         
     
 }
-
-protocol AddItemViewControllerDelegate : class {
+protocol AddItemViewControllerDelegate  {
     func addItemViewControllerDidCancel(_ controller: AddItemViewController)
     func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
 }
+
+
 

@@ -11,6 +11,8 @@ import UIKit
 class ChecklistViewController: UITableViewController {
     
     var checklistArray = [ChecklistItem]()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,21 @@ class ChecklistViewController: UITableViewController {
         checklistArray.append(ChecklistItem(text: "React", checked: false))
         checklistArray.append(ChecklistItem(text: "Swift"))
         checklistArray.append(ChecklistItem(text: "MHW"))
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segueIdentifier(for: segue) {
+        case .addItem:
+            // prepare for segue to Foo
+           
+            let navigation = segue.destination as! UINavigationController
+            let controller = navigation.topViewController as! AddItemViewController
+            controller.delegate = self
+            
+            break
+            
+        }
         
     }
     
@@ -66,4 +83,28 @@ class ChecklistViewController: UITableViewController {
         }
     }
 }
+
+extension ChecklistViewController : AddItemViewControllerDelegate{
+    
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+       dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+}
+
+extension ChecklistViewController: SegueHandlerType {
+    
+    enum SegueIdentifier: String {
+        case addItem
+        
+    }
+}
+    
+
 
