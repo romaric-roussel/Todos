@@ -11,6 +11,7 @@ import UIKit
 class ChecklistViewController: UITableViewController {
     
     var checklistArray = [ChecklistItem]()
+    //var itemToEdit
     
     
 
@@ -28,11 +29,11 @@ class ChecklistViewController: UITableViewController {
         switch segueIdentifier(for: segue) {
         case .addItem:
             // prepare for segue to Foo
-           
             let navigation = segue.destination as! UINavigationController
             let controller = navigation.topViewController as! AddItemViewController
             controller.delegate = self
-            
+            break
+        case .editItem:
             break
             
         }
@@ -47,8 +48,8 @@ class ChecklistViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
     
-        configureCheckmark(for: cell, withItem: checklistArray[indexPath.item])
-        configureText(for: cell, withItem: checklistArray[indexPath.item])
+        configureCheckmark(for: cell as! ChecklistItemCell, withItem: checklistArray[indexPath.item])
+        configureText(for: cell as! ChecklistItemCell, withItem: checklistArray[indexPath.item])
         
         return cell
 
@@ -61,17 +62,20 @@ class ChecklistViewController: UITableViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    func configureCheckmark(for cell: UITableViewCell, withItem item: ChecklistItem){
-        cell.accessoryType = item.checked ? .checkmark : .none
+    func configureCheckmark(for cell: ChecklistItemCell, withItem item: ChecklistItem){
+        
+        cell.lbChecked.isHidden = !item.checked
+        //cell.accessoryType = item.checked ? .checkmark : .none
         
     }
-    func configureText(for cell: UITableViewCell, withItem item: ChecklistItem){
-            cell.textLabel?.text = item.text
+    func configureText(for cell: ChecklistItemCell, withItem item: ChecklistItem){
+            //cell.textLabel?.text = item.text
+        cell.lblibelle.text = item.text
     }
     
     
-    @IBAction func addDummyTodo(_ sender:Any) {
-        checklistArray.append(ChecklistItem(text: "MHW"))
+    func addDummyTodo(item : ChecklistItem) {
+        checklistArray.append(item)
         tableView.insertRows(at: [IndexPath(row: checklistArray.count - 1, section: 0)], with:.automatic)
         
     }
@@ -92,7 +96,8 @@ extension ChecklistViewController : AddItemViewControllerDelegate{
     
     func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
        controller.dismiss(animated: true, completion: nil)
-        print(item.text)
+        addDummyTodo(item: item)
+        //print(item.text)
     }
     
     
@@ -103,6 +108,7 @@ extension ChecklistViewController: SegueHandlerType {
     
     enum SegueIdentifier: String {
         case addItem
+        case editItem
         
     }
 }

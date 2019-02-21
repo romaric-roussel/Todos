@@ -12,4 +12,7 @@ class ChecklistItemCell: UITableViewCell {
 
     @IBOutlet weak var lblibelle: UILabel!
     @IBOutlet weak var lbChecked: UILabel!
+    
+    
+    
 }

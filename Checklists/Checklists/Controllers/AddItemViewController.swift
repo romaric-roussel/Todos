@@ -16,6 +16,20 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
     
     
     var delegate : AddItemViewControllerDelegate?
+    var itemToEdit :ChecklistItemCell?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if(itemToEdit == nil){
+                //ajout
+        }else{
+            //modif
+        }
+      
+        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
     
     @IBAction func cancel() {
         //dismiss(animated: true, completion: nil)
