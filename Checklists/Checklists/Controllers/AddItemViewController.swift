@@ -8,9 +8,11 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+class AddItemViewController: UITableViewController,UITextFieldDelegate {
     
     @IBOutlet weak var itemText: UITextField!
+    @IBOutlet weak var btnDone: UIBarButtonItem!
+    @IBOutlet weak var btnCancel: UIBarButtonItem!
     
      @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
@@ -26,5 +28,24 @@ class AddItemViewController: UITableViewController {
         itemText.becomeFirstResponder()
     }
     
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        if let oldString = textField.text {
+            let newString = oldString.replacingCharacters(in: Range(range, in: oldString)!,
+                                                          with: string)
+            
+            if((newString.isEmpty)){
+                btnDone.isEnabled = false
+                
+            }else {
+                btnDone.isEnabled = true
+            }
+            
+        }
+        return true
+    }
+        
     
 }

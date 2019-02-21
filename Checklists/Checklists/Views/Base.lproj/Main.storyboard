@@ -70,6 +70,7 @@
                                                     <connections>
                                                         <action selector="done" destination="Iib-gC-dUA" eventType="editingDidEndOnExit" id="2ei-yU-cUi"/>
                                                         <action selector="done" destination="Iib-gC-dUA" eventType="editingDidEnd" id="kUa-TJ-AaC"/>
+                                                        <outlet property="delegate" destination="Iib-gC-dUA" id="lqP-vN-BHN"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -95,13 +96,15 @@
                                 <action selector="cancel" destination="Iib-gC-dUA" id="xiv-m4-quq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="94t-7n-xqH">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="94t-7n-xqH">
                             <connections>
                                 <action selector="done" destination="Iib-gC-dUA" id="hb0-pY-gsb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnCancel" destination="dmd-DY-Q3E" id="wtF-MK-VrP"/>
+                        <outlet property="btnDone" destination="94t-7n-xqH" id="xt0-zX-Vev"/>
                         <outlet property="itemText" destination="YNA-ty-QXE" id="xb8-DH-U3h"/>
                     </connections>
                 </tableViewController>
