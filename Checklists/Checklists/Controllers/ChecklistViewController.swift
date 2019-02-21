@@ -53,7 +53,13 @@ class ChecklistViewController: UITableViewController {
     }
     
     
-
+    @IBAction func addDummyTodo(_ sender:Any) {
+        checklistArray.append(ChecklistItem(text: "MHW"))
+        tableView.insertRows(at: [IndexPath(row: checklistArray.count - 1, section: 0)], with:.automatic)
+        
+    }
+    
+    
 
 }
 

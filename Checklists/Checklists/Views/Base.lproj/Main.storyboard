@@ -33,7 +33,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklist" id="7mb-ak-OHy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q3O-1l-GcZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q3O-1l-GcZ">
+                            <connections>
+                                <action selector="addDummyTodo:" destination="IPq-fa-m6Q" id="QoO-xG-Wzl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZR-6O-R6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
