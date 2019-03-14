@@ -16,19 +16,24 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
     
     
     var delegate : AddItemViewControllerDelegate?
-    var itemToEdit :ChecklistItemCell?
+    var itemToEdit :ChecklistItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(itemToEdit == nil){
-                //ajout
-        }else{
+        if(itemToEdit != nil){
             //modif
+            self.title = "Edit item"
+            itemText.text = itemToEdit?.text        
+        } else {
+            btnDone.isEnabled = false
         }
       
         // Do any additional setup after loading the view, typically from a nib.
         
     }
+    
+    
+
     
     
     @IBAction func cancel() {
@@ -40,7 +45,13 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
     @IBAction func done() {
         //print(itemText.text!)
         //dismiss(animated: true, completion: nil)
-        delegate?.addItemViewController(self, didFinishAddingItem: ChecklistItem(text: itemText.text!))
+        if(itemToEdit != nil){
+            itemToEdit?.text = itemText.text!
+            delegate?.addItemViewController(self, didFinishEditingItem: itemToEdit!)
+        }else {
+            delegate?.addItemViewController(self, didFinishAddingItem: ChecklistItem(text: itemText.text!))
+
+        }
   
     }
     
@@ -58,12 +69,10 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
         if let oldString = textField.text {
             let newString = oldString.replacingCharacters(in: Range(range, in: oldString)!,
                                                           with: string)
-            
-            if((newString.isEmpty)){
-                btnDone.isEnabled = false
-                
-            }else {
+            if(!newString.isEmpty){
                 btnDone.isEnabled = true
+            } else {
+                btnDone.isEnabled = false
             }
             
         }
@@ -76,6 +85,7 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
 protocol AddItemViewControllerDelegate  {
     func addItemViewControllerDidCancel(_ controller: AddItemViewController)
     func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
+    func addItemViewController(_ controller:AddItemViewController,didFinishEditingItem item:ChecklistItem)
 }
 
 

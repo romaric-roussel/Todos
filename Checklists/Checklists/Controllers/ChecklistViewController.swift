@@ -13,7 +13,6 @@ class ChecklistViewController: UITableViewController {
     var checklistArray = [ChecklistItem]()
     //var itemToEdit
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +31,15 @@ class ChecklistViewController: UITableViewController {
             let navigation = segue.destination as! UINavigationController
             let controller = navigation.topViewController as! AddItemViewController
             controller.delegate = self
+            controller.itemToEdit = nil
             break
         case .editItem:
+            let navigation = segue.destination as! UINavigationController
+            let controller = navigation.topViewController as! AddItemViewController
+            controller.delegate = self
+            let cell = sender as? ChecklistItemCell
+            let indexForSelectedItem = tableView.indexPath(for: cell!)
+            controller.itemToEdit = checklistArray[indexForSelectedItem!.row]
             break
             
         }
@@ -79,6 +85,11 @@ class ChecklistViewController: UITableViewController {
         tableView.insertRows(at: [IndexPath(row: checklistArray.count - 1, section: 0)], with:.automatic)
         
     }
+    func updateDummyTodo(item : ChecklistItem,index :Int) {
+        checklistArray[index].text = item.text
+        //tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        tableView.reloadData()
+    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -97,9 +108,15 @@ extension ChecklistViewController : AddItemViewControllerDelegate{
     func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
        controller.dismiss(animated: true, completion: nil)
         addDummyTodo(item: item)
-        //print(item.text)
     }
     
+    func addItemViewController(_ controller:AddItemViewController,didFinishEditingItem item:ChecklistItem) {
+        controller.dismiss(animated: true, completion: nil)
+        let index = checklistArray.index(where : {
+            $0 === item
+        })
+        updateDummyTodo(item: item, index: index!)
+    }
     
     
 }

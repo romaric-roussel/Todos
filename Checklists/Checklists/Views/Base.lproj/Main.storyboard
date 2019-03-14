@@ -119,7 +119,7 @@
                                 <action selector="cancel" destination="Iib-gC-dUA" id="sz2-Ar-523"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="94t-7n-xqH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="94t-7n-xqH">
                             <connections>
                                 <action selector="done" destination="Iib-gC-dUA" id="sQb-5T-pNz"/>
                             </connections>
