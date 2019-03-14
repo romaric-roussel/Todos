@@ -18,12 +18,9 @@ class AllListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
-        case .addItem:
+        case .seeList:
             // prepare for segue to Foo
-            let navigation = segue.destination as! UINavigationController
-            let controller = navigation.topViewController as! ItemDetailViewController
-            controller.delegate = self
-            controller.itemToEdit = nil
+            let navigation = segue.destination as! ChecklistViewController
             break
         
         }
@@ -47,7 +44,7 @@ class AllListViewController: UITableViewController {
 extension AllListViewController: SegueHandlerType {
     
     enum SegueIdentifier: String {
-        //case addItem
+        case seeList
         //case editItem
         
     }
