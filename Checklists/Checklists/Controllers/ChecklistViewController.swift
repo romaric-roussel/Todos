@@ -11,6 +11,7 @@ import UIKit
 class ChecklistViewController: UITableViewController {
     
     var checklistArray = [ChecklistItem]()
+    var list: Checklist!
     var documentDirectory: URL {
         get {
             return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -30,13 +31,7 @@ class ChecklistViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        /*checklistArray.append(ChecklistItem(text: "Tennis", checked: true))
-        checklistArray.append(ChecklistItem(text: "React", checked: false))
-        checklistArray.append(ChecklistItem(text: "Swift"))
-        checklistArray.append(ChecklistItem(text: "MHW"))
-        
-        print(dataFileUrl)*/
+        self.title = list.name
         
     }
     

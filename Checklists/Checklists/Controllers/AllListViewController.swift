@@ -31,7 +31,10 @@ class AllListViewController: UITableViewController {
         switch segueIdentifier(for: segue) {
         case .seeList:
             // prepare for segue to Foo
-            _ = segue.destination as! ChecklistViewController
+            let delegate = segue.destination as! ChecklistViewController
+            let cell = sender as? UITableViewCell
+            let indexForSelectedItem = tableView.indexPath(for: cell!)
+            delegate.list = lists[indexForSelectedItem!.row]
             break
         
         }
