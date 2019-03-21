@@ -18,11 +18,16 @@ class AllListViewController: UITableViewController {
         super.viewDidLoad()
         checklist.append(ChecklistItem(text: "mhw"))
         checklist.append(ChecklistItem(text: "react",checked: true))
+        
         lists.append(Checklist(name: "liste 1"))
-        lists.append(Checklist(name: "liste 2",items: checklist))
+        lists.append(Checklist(name: "liste 2"))
+        for item in lists {
+            item.items = [ChecklistItem(text: "Item for " + item.name)]
+            //print(item.name)
+            //print(item.items[0].text)
 
-        print(lists[0].name)
-        print(lists[0].items.count)
+        }
+
 
         
     }
@@ -66,6 +71,15 @@ class AllListViewController: UITableViewController {
         return cell
         
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            lists.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            //saveChecklistItems()
+        }
+    }
+    
     func addDummyTodo(item : Checklist) {
         lists.append(item)
         tableView.insertRows(at: [IndexPath(row: lists.count - 1, section: 0)], with:.automatic)

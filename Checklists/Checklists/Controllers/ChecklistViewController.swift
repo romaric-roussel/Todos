@@ -32,11 +32,12 @@ class ChecklistViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = list.name
-        
+        checklistArray = list.items
     }
     
     override func awakeFromNib() {
-        loadChecklistItems()
+        //loadChecklistItems()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,7 +87,7 @@ class ChecklistViewController: UITableViewController {
     func configureCheckmark(for cell: ChecklistItemCell, withItem item: ChecklistItem){
         
         cell.lbChecked.isHidden = !item.checked
-        saveChecklistItems()
+        //saveChecklistItems()
 
         //cell.accessoryType = item.checked ? .checkmark : .none
         
@@ -94,7 +95,7 @@ class ChecklistViewController: UITableViewController {
     func configureText(for cell: ChecklistItemCell, withItem item: ChecklistItem){
             //cell.textLabel?.text = item.text
         cell.lblibelle.text = item.text
-        saveChecklistItems()
+        //saveChecklistItems()
 
     }
     
@@ -102,13 +103,13 @@ class ChecklistViewController: UITableViewController {
     func addDummyTodo(item : ChecklistItem) {
         checklistArray.append(item)
         tableView.insertRows(at: [IndexPath(row: checklistArray.count - 1, section: 0)], with:.automatic)
-        saveChecklistItems()
+        //saveChecklistItems()
         
     }
     func updateDummyTodo(item : ChecklistItem,index :Int) {
         checklistArray[index].text = item.text
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        saveChecklistItems()
+        //saveChecklistItems()
     }
     
     func saveChecklistItems() {
@@ -138,7 +139,7 @@ class ChecklistViewController: UITableViewController {
         if editingStyle == .delete {
             checklistArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            saveChecklistItems()
+            //saveChecklistItems()
         }
     }
 }
