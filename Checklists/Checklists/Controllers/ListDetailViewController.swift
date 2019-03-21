@@ -46,6 +46,10 @@ class ListDetailViewController : UITableViewController,UITextFieldDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        listItemText.becomeFirstResponder()
+    }
+    
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {

@@ -13,10 +13,25 @@ class AllListViewController: UITableViewController {
     var lists  = [Checklist]()
     var checklist = [ChecklistItem]()
     
+    var documentDirectory: URL {
+        get {
+            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        }
+    }
+    var dataFileUrl: URL {
+        get {
+            var path : URL
+            let file = "Checklists"
+            let ext = "json"
+            path = documentDirectory.appendingPathComponent(file).appendingPathExtension(ext)
+            return path
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checklist.append(ChecklistItem(text: "mhw"))
+        print(dataFileUrl)
+        /*checklist.append(ChecklistItem(text: "mhw"))
         checklist.append(ChecklistItem(text: "react",checked: true))
         
         lists.append(Checklist(name: "liste 1"))
@@ -26,9 +41,13 @@ class AllListViewController: UITableViewController {
             //print(item.name)
             //print(item.items[0].text)
 
-        }
+        }*/
 
 
+        
+    }
+    override func awakeFromNib() {
+        loadChecklistItems()
         
     }
     
@@ -76,20 +95,44 @@ class AllListViewController: UITableViewController {
         if editingStyle == .delete {
             lists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            //saveChecklistItems()
+            saveChecklistItems()
         }
+    }
+    
+    func saveChecklistItems() {
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do {
+            try encoder.encode(lists).write(to: dataFileUrl)
+        } catch {
+            print("error")
+        }
+    }
+    
+    func loadChecklistItems() {
+        do {
+            // Decode data to object
+            let jsonDecoder = JSONDecoder()
+            let data : Data = try Data(contentsOf: dataFileUrl)
+            lists =  try jsonDecoder.decode([Checklist].self, from: data)
+        }
+        catch {
+            print(error)
+        }
+        
     }
     
     func addDummyTodo(item : Checklist) {
         lists.append(item)
         tableView.insertRows(at: [IndexPath(row: lists.count - 1, section: 0)], with:.automatic)
-        //saveChecklistItems()
+        saveChecklistItems()
         
     }
     func updateDummyTodo(item : Checklist,index :Int) {
         lists[index].name = item.name
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        //saveChecklistItems()
+        saveChecklistItems()
     }
     
     

@@ -12,7 +12,7 @@ class ChecklistViewController: UITableViewController {
     
     var checklistArray = [ChecklistItem]()
     var list: Checklist!
-    var documentDirectory: URL {
+    /*var documentDirectory: URL {
         get {
             return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         }
@@ -25,7 +25,7 @@ class ChecklistViewController: UITableViewController {
             path = documentDirectory.appendingPathComponent(file).appendingPathExtension(ext)
             return path
         }
-    }
+    }*/
     //var itemToEdit
     
 
@@ -112,7 +112,7 @@ class ChecklistViewController: UITableViewController {
         //saveChecklistItems()
     }
     
-    func saveChecklistItems() {
+    /*func saveChecklistItems() {
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -134,7 +134,7 @@ class ChecklistViewController: UITableViewController {
             print(error)
         }
         
-    }
+    }*/
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             checklistArray.remove(at: indexPath.row)
