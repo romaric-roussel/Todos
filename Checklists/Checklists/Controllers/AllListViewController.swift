@@ -10,10 +10,10 @@ import UIKit
 
 class AllListViewController: UITableViewController {
     
-    var lists  = [Checklist]()
-    var checklist = [ChecklistItem]()
+    /*var lists  = [Checklist]()
+    var checklist = [ChecklistItem]()*/
     
-    var documentDirectory: URL {
+    /*var documentDirectory: URL {
         get {
             return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         }
@@ -26,11 +26,11 @@ class AllListViewController: UITableViewController {
             path = documentDirectory.appendingPathComponent(file).appendingPathExtension(ext)
             return path
         }
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(dataFileUrl)
+        //print(dataFileUrl)
         /*checklist.append(ChecklistItem(text: "mhw"))
         checklist.append(ChecklistItem(text: "react",checked: true))
         
@@ -47,8 +47,8 @@ class AllListViewController: UITableViewController {
         
     }
     override func awakeFromNib() {
-        loadChecklistItems()
-        
+        //loadChecklistItems()
+        DataModel.sharedInstance.loadChecklistItems()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,7 +58,9 @@ class AllListViewController: UITableViewController {
             let delegate = segue.destination as! ChecklistViewController
             let cell = sender as? UITableViewCell
             let indexForSelectedItem = tableView.indexPath(for: cell!)
-            delegate.list = lists[indexForSelectedItem!.row]
+            //delegate.list = lists[indexForSelectedItem!.row]
+            delegate.list = DataModel.sharedInstance.lists[indexForSelectedItem!.row]
+
             break
         case .AddList:
             // prepare for segue to Foo
@@ -73,7 +75,9 @@ class AllListViewController: UITableViewController {
             controller.delegate = self
             let cell = sender as? UITableViewCell
             let indexForSelectedItem = tableView.indexPath(for: cell!)
-            controller.listToEdit = lists[indexForSelectedItem!.row]
+            //controller.listToEdit = lists[indexForSelectedItem!.row]
+            controller.listToEdit = DataModel.sharedInstance.lists[indexForSelectedItem!.row]
+
             break
         
         }
@@ -81,25 +85,29 @@ class AllListViewController: UITableViewController {
     
     //datasource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count    }
+        //return lists.count
+        return DataModel.sharedInstance.lists.count
+    }
     
     //delegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckList", for: indexPath)
-        cell.textLabel?.text = lists[indexPath.row].name
+        //cell.textLabel?.text = lists[indexPath.row].name
+        cell.textLabel?.text = DataModel.sharedInstance.lists[indexPath.row].name
         return cell
         
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            lists.remove(at: indexPath.row)
+            //lists.remove(at: indexPath.row)
+            DataModel.sharedInstance.lists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            saveChecklistItems()
+            //saveChecklistItems()
         }
     }
     
-    func saveChecklistItems() {
+    /*func saveChecklistItems() {
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -121,18 +129,20 @@ class AllListViewController: UITableViewController {
             print(error)
         }
         
-    }
+    }*/
     
     func addDummyTodo(item : Checklist) {
-        lists.append(item)
-        tableView.insertRows(at: [IndexPath(row: lists.count - 1, section: 0)], with:.automatic)
-        saveChecklistItems()
+        //lists.append(item)
+        DataModel.sharedInstance.lists.append(item)
+        tableView.insertRows(at: [IndexPath(row: DataModel.sharedInstance.lists.count - 1, section: 0)], with:.automatic)
+        //saveChecklistItems()
         
     }
     func updateDummyTodo(item : Checklist,index :Int) {
-        lists[index].name = item.name
+        //lists[index].name = item.name
+        DataModel.sharedInstance.lists[index].name = item.name
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        saveChecklistItems()
+        //saveChecklistItems()
     }
     
     
@@ -153,7 +163,10 @@ extension AllListViewController : ListDetailViewControllerDelegate{
     
     func ListDetailViewController(_ controller: ListDetailViewController, didFinishEditingList item: Checklist) {
         controller.dismiss(animated: true, completion: nil)
-        let index = lists.index(where : {
+        /*let index = lists.index(where : {
+            $0 === item
+        })*/
+        let index = DataModel.sharedInstance.lists.index(where : {
             $0 === item
         })
         updateDummyTodo(item: item, index: index!)

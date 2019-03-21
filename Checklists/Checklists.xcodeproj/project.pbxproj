@@ -19,6 +19,7 @@
 		0881D65B223A8F17008AD060 /* AllListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881D65A223A8F17008AD060 /* AllListViewController.swift */; };
 		0881D65D223AA0E4008AD060 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881D65C223AA0E4008AD060 /* Checklist.swift */; };
 		08E20A1C22437968009BDF1A /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E20A1B22437968009BDF1A /* ListDetailViewController.swift */; };
+		08E20A1E2243CBAB009BDF1A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E20A1D2243CBAB009BDF1A /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0881D65A223A8F17008AD060 /* AllListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListViewController.swift; sourceTree = "<group>"; };
 		0881D65C223AA0E4008AD060 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		08E20A1B22437968009BDF1A /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		08E20A1D2243CBAB009BDF1A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				08447CBE2215A15F0008A1EA /* ChecklistItem.swift */,
 				0881D65C223AA0E4008AD060 /* Checklist.swift */,
+				08E20A1D2243CBAB009BDF1A /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				086AFABE221EDDD8009864C6 /* SegueHandlerType.swift in Sources */,
 				0881D65B223A8F17008AD060 /* AllListViewController.swift in Sources */,
 				0881D65D223AA0E4008AD060 /* Checklist.swift in Sources */,
+				08E20A1E2243CBAB009BDF1A /* DataModel.swift in Sources */,
 				086AFAC0221EFBE0009864C6 /* ChecklistItemCell.swift in Sources */,
 				08E20A1C22437968009BDF1A /* ListDetailViewController.swift in Sources */,
 				08447CBF2215A15F0008A1EA /* ChecklistItem.swift in Sources */,
