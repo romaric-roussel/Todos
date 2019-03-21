@@ -83,6 +83,11 @@ class AllListViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+        
+    }
+    
     //datasource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return lists.count
@@ -94,6 +99,21 @@ class AllListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckList", for: indexPath)
         //cell.textLabel?.text = lists[indexPath.row].name
         cell.textLabel?.text = DataModel.sharedInstance.lists[indexPath.row].name
+        switch DataModel.sharedInstance.lists[indexPath.row].uncheckedItemsCount {
+        case 0:
+            if(DataModel.sharedInstance.lists[indexPath.row].items.count == 0){
+                cell.detailTextLabel?.text = "No Item"
+            }else {
+                cell.detailTextLabel?.text = "All Done!"
+            }
+            break
+        case 1... :
+            cell.detailTextLabel?.text = String( DataModel.sharedInstance.lists[indexPath.row].uncheckedItemsCount)
+            break
+        default:
+            break
+        }
+        
         return cell
         
     }

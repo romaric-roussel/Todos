@@ -11,7 +11,11 @@ import Foundation
 class Checklist : Codable {
     var name: String
     var items: [ChecklistItem]
-    
+    var uncheckedItemsCount : Int {
+        get {
+           return items.filter({!$0.checked}).count
+        }
+    }
     
     init(name:String, items : [ChecklistItem]? = [ChecklistItem]()){
         self.name = name
