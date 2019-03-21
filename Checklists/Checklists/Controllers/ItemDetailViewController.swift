@@ -10,11 +10,11 @@ import UIKit
 
 class ItemDetailViewController: UITableViewController,UITextFieldDelegate {
     
-    @IBOutlet weak var itemText: UITextField!
-    @IBOutlet weak var btnCancel: UIBarButtonItem!
     @IBOutlet weak var btnDone: UIBarButtonItem!
+    @IBOutlet weak var btnCancel: UIBarButtonItem!
+    @IBOutlet weak var itemText: UITextField!
     
-    
+
     var delegate : itemDetailViewControllerDelegate?
     var itemToEdit :ChecklistItem?
     
