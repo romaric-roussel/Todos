@@ -59,5 +59,13 @@ class DataModel {
         }
         
     }
+    
+    func sortChecklists() {
+        lists.sort {
+            $0.name.localizedCompare($1.name) == .orderedAscending
+        }
+        
+        
+    }
 }
 

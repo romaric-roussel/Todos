@@ -85,6 +85,7 @@ class AllListViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
+        DataModel.sharedInstance.sortChecklists()
         
     }
     
