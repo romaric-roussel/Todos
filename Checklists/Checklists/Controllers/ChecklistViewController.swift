@@ -32,13 +32,9 @@ class ChecklistViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = list.name
-        checklistArray = list.items
+        //checklistArray = list.items
     }
     
-    override func awakeFromNib() {
-        //loadChecklistItems()
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
@@ -55,7 +51,9 @@ class ChecklistViewController: UITableViewController {
             controller.delegate = self
             let cell = sender as? ChecklistItemCell
             let indexForSelectedItem = tableView.indexPath(for: cell!)
-            controller.itemToEdit = checklistArray[indexForSelectedItem!.row]
+            //controller.itemToEdit = checklistArray[indexForSelectedItem!.row]
+            controller.itemToEdit = list.items[indexForSelectedItem!.row]
+
             break
             
         }
@@ -64,14 +62,14 @@ class ChecklistViewController: UITableViewController {
     
     //datasource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return checklistArray.count    }
+        return list.items.count    }
     
     //delegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
     
-        configureCheckmark(for: cell as! ChecklistItemCell, withItem: checklistArray[indexPath.item])
-        configureText(for: cell as! ChecklistItemCell, withItem: checklistArray[indexPath.item])
+        configureCheckmark(for: cell as! ChecklistItemCell, withItem: list.items[indexPath.item])
+        configureText(for: cell as! ChecklistItemCell, withItem: list.items[indexPath.item])
         
         return cell
 
@@ -80,7 +78,7 @@ class ChecklistViewController: UITableViewController {
     //deledgte too
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        checklistArray[indexPath.item].toggleChecked()
+        list.items[indexPath.item].toggleChecked()
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -101,13 +99,13 @@ class ChecklistViewController: UITableViewController {
     
     
     func addDummyTodo(item : ChecklistItem) {
-        checklistArray.append(item)
+        list.items.append(item)
         tableView.insertRows(at: [IndexPath(row: checklistArray.count - 1, section: 0)], with:.automatic)
         //saveChecklistItems()
         
     }
     func updateDummyTodo(item : ChecklistItem,index :Int) {
-        checklistArray[index].text = item.text
+        list.items[index].text = item.text
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         //saveChecklistItems()
     }
@@ -137,7 +135,7 @@ class ChecklistViewController: UITableViewController {
     }*/
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            checklistArray.remove(at: indexPath.row)
+            list.items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             //saveChecklistItems()
         }
@@ -157,7 +155,7 @@ extension ChecklistViewController : itemDetailViewControllerDelegate{
     
     func itemDetailViewController(_ controller:ItemDetailViewController,didFinishEditingItem item:ChecklistItem) {
         controller.dismiss(animated: true, completion: nil)
-        let index = checklistArray.index(where : {
+        let index = list.items.index(where : {
             $0 === item
         })
         updateDummyTodo(item: item, index: index!)

@@ -48,7 +48,7 @@ class AllListViewController: UITableViewController {
     }
     override func awakeFromNib() {
         //loadChecklistItems()
-        DataModel.sharedInstance.loadChecklistItems()
+        DataModel.sharedInstance.loadChecklist()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
