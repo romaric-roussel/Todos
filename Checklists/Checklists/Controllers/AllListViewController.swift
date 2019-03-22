@@ -100,6 +100,7 @@ class AllListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckList", for: indexPath)
         //cell.textLabel?.text = lists[indexPath.row].name
         cell.textLabel?.text = DataModel.sharedInstance.lists[indexPath.row].name
+        cell.imageView?.image = DataModel.sharedInstance.lists[indexPath.row].icon.image
         switch DataModel.sharedInstance.lists[indexPath.row].uncheckedItemsCount {
         case 0:
             if(DataModel.sharedInstance.lists[indexPath.row].items.count == 0){

@@ -234,6 +234,36 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="kRz-Qo-R21">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="detailDisclosureButton" indentationWidth="10" id="sQM-86-eCf">
+                                        <rect key="frame" x="0.0" y="115" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sQM-86-eCf" id="NR6-Z6-MgW">
+                                            <rect key="frame" x="0.0" y="0.0" width="307" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jx-5h-4i6">
+                                                    <rect key="frame" x="16" y="11.5" width="275" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-NA-eAl">
+                                                    <rect key="frame" x="262" y="4" width="36.000000000000227" height="35.999999999999886"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9jx-5h-4i6" firstAttribute="centerX" secondItem="NR6-Z6-MgW" secondAttribute="centerX" id="4Ff-dP-nEg"/>
+                                                <constraint firstItem="9jx-5h-4i6" firstAttribute="centerX" secondItem="NR6-Z6-MgW" secondAttribute="centerX" id="HTy-Nx-i0E"/>
+                                                <constraint firstItem="9jx-5h-4i6" firstAttribute="leading" secondItem="NR6-Z6-MgW" secondAttribute="leadingMargin" id="bSw-do-jSc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uJe-NA-eAl" secondAttribute="trailing" id="cQu-3g-dgO"/>
+                                                <constraint firstItem="9jx-5h-4i6" firstAttribute="centerY" secondItem="NR6-Z6-MgW" secondAttribute="centerY" id="mar-WX-SFp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="NiH-OP-ynz" id="WYh-0V-ce4"/>
@@ -254,6 +284,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnDoneList" destination="PSx-fS-aeL" id="QiH-cs-bwB"/>
+                        <outlet property="ivIcon" destination="uJe-NA-eAl" id="2Au-FI-Pu5"/>
                         <outlet property="listItemText" destination="uaK-gU-qZe" id="I0G-KO-61a"/>
                     </connections>
                 </tableViewController>

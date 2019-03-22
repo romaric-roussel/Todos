@@ -14,12 +14,15 @@ class ListDetailViewController : UITableViewController,UITextFieldDelegate {
     @IBOutlet weak var btnDoneList: UIBarButtonItem!
     @IBOutlet weak var btnCancelList: UIBarButtonItem!
     @IBOutlet weak var listItemText: UITextField!
+    @IBOutlet weak var ivIcon: UIImageView!
+    
     
     var delegate : ListDetailViewControllerDelegate?
     var listToEdit :Checklist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ivIcon.image = listToEdit?.icon.image
         if(listToEdit != nil){
             //modif
             self.title = "Edit List"

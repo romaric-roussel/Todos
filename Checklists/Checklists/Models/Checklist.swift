@@ -16,10 +16,12 @@ class Checklist : Codable {
            return items.filter({!$0.checked}).count
         }
     }
+    var icon : IconAsset
     
-    init(name:String, items : [ChecklistItem]? = [ChecklistItem]()){
+    init(name:String, items : [ChecklistItem]? = [ChecklistItem](),icon:IconAsset? = IconAsset.Birthdays){
         self.name = name
         self.items = items!
+        self.icon = icon!
     }
     
 
