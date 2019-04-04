@@ -85,6 +85,7 @@ class ChecklistViewController: UITableViewController {
     func configureCheckmark(for cell: ChecklistItemCell, withItem item: ChecklistItem){
         
         cell.lbChecked.isHidden = !item.checked
+        cell.lbChecked.textColor = view.tintColor
         //saveChecklistItems()
 
         //cell.accessoryType = item.checked ? .checkmark : .none

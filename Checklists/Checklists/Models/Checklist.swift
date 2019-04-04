@@ -18,7 +18,7 @@ class Checklist : Codable {
     }
     var icon : IconAsset
     
-    init(name:String, items : [ChecklistItem]? = [ChecklistItem](),icon:IconAsset? = IconAsset.Birthdays){
+    init(name:String, items : [ChecklistItem]? = [ChecklistItem](),icon:IconAsset? = IconAsset.NoIcon){
         self.name = name
         self.items = items!
         self.icon = icon!

@@ -22,4 +22,6 @@ enum IconAsset : String, CaseIterable, Codable {
     var image : UIImage {
         return UIImage(named: self.rawValue)!
     }
+    
+
 }

@@ -11,7 +11,6 @@
 		08447CAC22157DA30008A1EA /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08447CAB22157DA30008A1EA /* ChecklistViewController.swift */; };
 		08447CAF22157DA30008A1EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08447CAD22157DA30008A1EA /* Main.storyboard */; };
 		08447CB122157DA40008A1EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08447CB022157DA40008A1EA /* Assets.xcassets */; };
-		08447CB422157DA40008A1EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08447CB222157DA40008A1EA /* LaunchScreen.storyboard */; };
 		08447CBF2215A15F0008A1EA /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08447CBE2215A15F0008A1EA /* ChecklistItem.swift */; };
 		086AFABC221E9C80009864C6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AFABB221E9C80009864C6 /* ItemDetailViewController.swift */; };
 		086AFABE221EDDD8009864C6 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AFABD221EDDD8009864C6 /* SegueHandlerType.swift */; };
@@ -30,7 +29,6 @@
 		08447CAB22157DA30008A1EA /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		08447CAE22157DA30008A1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08447CB022157DA40008A1EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		08447CB322157DA40008A1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08447CB522157DA40008A1EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08447CBE2215A15F0008A1EA /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		086AFABB221E9C80009864C6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 		08447CBB2215A05B0008A1EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				08447CB222157DA40008A1EA /* LaunchScreen.storyboard */,
 				08447CAD22157DA30008A1EA /* Main.storyboard */,
 			);
 			path = Views;
@@ -176,7 +173,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08447CB422157DA40008A1EA /* LaunchScreen.storyboard in Resources */,
 				08447CB122157DA40008A1EA /* Assets.xcassets in Resources */,
 				08447CAF22157DA30008A1EA /* Main.storyboard in Resources */,
 			);
@@ -213,14 +209,6 @@
 				08447CAE22157DA30008A1EA /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		08447CB222157DA40008A1EA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08447CB322157DA40008A1EA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
